@@ -1,5 +1,5 @@
 //Script .ino para sensar posición con encoder incremental de 600 p/r
-volatile unsigned int temp, counter = 0;
+float temp, counter = 0;
     
 void setup() {
   Serial.begin (9600);
@@ -11,7 +11,7 @@ void setup() {
   
   attachInterrupt(0, ai0, RISING);
    
-  attachInterrupt(1, ai1, RISING);
+//  attachInterrupt(1, ai1, RISING);
   }
    
   void loop() {
@@ -24,20 +24,21 @@ void setup() {
    
   void ai0() {
   // Se activa la funcion por la señal en el pin 2
-  // Se verifica la condicion del pin 3para establecer la direccion
+  // Se verifica la condicion del pin 3 pra establecer la direccion
   if(digitalRead(3)==LOW) {
   counter++;
   }else{
   counter--;
   }
+
   }
    
-  void ai1() {
-  // Se activa la funcion por la señal en el pin 3 
-  // Se verifica la condicion del pin 2 para establecer la direccion
-  if(digitalRead(2)==LOW) {
-  counter--;
-  }else{
-  counter++;
-  }
-}
+//  void ai1() {
+//  // Se activa la funcion por la señal en el pin 3 
+//  // Se verifica la condicion del pin 2 para establecer la direccion
+//  if(digitalRead(2)==LOW) {
+//  counter--;
+//  }else{
+//  counter++;
+//  }
+// }
